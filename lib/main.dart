@@ -1,4 +1,6 @@
-import 'package:durg/View/Post_Screen.dart';
+
+import 'package:durg/alltreks/AllTreks.dart';
+import 'package:durg/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,8 +13,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home:Post_Screen(),
+      color: Colors.white,
       debugShowCheckedModeBanner: false,
-    );
+      home: HomeScreen()
+      );
   }
 }
