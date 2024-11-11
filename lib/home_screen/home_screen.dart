@@ -1,7 +1,6 @@
-import 'package:auto_scroll/auto_scroll.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:durg/home_screen/widgets/difficulty_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,12 +11,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  List<dynamic> items = [
-     "",
-      "","third", "fourth"];
+  List<dynamic> difficultyList = [ "Easy","Medium", "Difficult"];
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
+     
       appBar: AppBar( 
         title: const Text("Where do you want to go",
         style: TextStyle( 
@@ -34,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
           icon: const Icon (
             Icons.person,
             size: 35,
-            color: Colors.blue,
+            color: Color.fromARGB(255, 89, 159, 215),
           ),
           ),
         ],
@@ -84,8 +82,55 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           );
         }).toList(),
-      )
-              ],
+      ),
+      const SizedBox(
+        height: 20,
+      ),
+     const Row( 
+        children: [ 
+          Icon(
+            Icons.hiking,
+            size: 30,
+          ),
+          SizedBox(width: 25,),
+          Text( "Based On Diffulty",
+          style: TextStyle( 
+            fontSize: 22,
+            fontWeight: FontWeight.w600,
+          ),
+          ),
+        ],
+      ),
+      SizedBox(
+        height: 50,
+        child: ListView.builder(
+          scrollDirection:Axis.horizontal,
+          shrinkWrap: true,
+          itemCount: difficultyList.length,
+          itemBuilder:(context, index) {
+            return difficulty(difficultyList[index]);
+          },
+          ),
+      ),
+      const SizedBox(
+        height: 10,
+      ),
+      const Row( 
+        children: [ 
+          Icon(
+            Icons.landscape_outlined,
+            size: 30,
+          ),
+          SizedBox(width: 25,),
+          Text( "Based On Diffulty",
+          style: TextStyle( 
+            fontSize: 22,
+            fontWeight: FontWeight.w600,
+          ),
+          ),
+        ],
+      ),
+      ],
       ),
     );
   }
