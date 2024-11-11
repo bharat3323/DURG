@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Expanded(
                         child: Image.network(
-                          items[i]
+                          ""
 
                         ),
                       ),
