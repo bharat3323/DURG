@@ -11,14 +11,18 @@ class Alltreks extends StatefulWidget {
 
 class _AlltreksState extends State<Alltreks> {
   List<Map<String, String>> treks = [
-    {'name': 'Achala', 'image': 'assets/achala.jpg'},
-    {'name': 'Aadrai Jungle', 'image': 'assets/aadrai_jungle.jpg'},
-    {'name': 'Ahupe Ghat', 'image': 'assets/ahupe_ghat.jpg'},
+    {'name': 'Achala', 'image': 'assets/achla.jpeg'},
+    {'name': 'Aadrai Jungle', 'image': 'assets/aadrai.jpg'},
+    {'name': 'Ahupe Ghat', 'image': 'assets/ahupe.jpeg'},
     {'name': 'Ajinkyatara', 'image': 'assets/ajinkyatara.jpg'},
-    {'name': 'Ajobagad', 'image': 'assets/ajobagad.jpg'},
+    {'name': 'Ajobagad', 'image': 'assets/ajobagad.jpeg'},
     {'name': 'Amaraichi wat', 'image': 'assets/amaraichi.jpg'},
     {'name': 'Andharban', 'image': 'assets/andharban.jpg'},
-    {'name': 'Anghai', 'image': 'assets/anghai.jpg'},
+    {'name': 'Anghai', 'image': 'assets/anghai.jpeg'},
+    {'name': 'Achala', 'image': 'assets/achla.jpeg'},
+    {'name': 'Aadrai Jungle', 'image': 'assets/aadrai.jpg'},
+    {'name': 'Ahupe Ghat', 'image': 'assets/ahupe.jpeg'},
+    {'name': 'Ajinkyatara', 'image': 'assets/ajinkyatara.jpg'},
   ];
 
   @override
