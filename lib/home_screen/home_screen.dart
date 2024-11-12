@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:durg/about/About.dart';
 import 'package:durg/chats/Post_Screen.dart';
 import 'package:durg/alltreks/AllTreks.dart';
 import 'package:durg/alltreks/TrekDetailPage.dart';
@@ -73,7 +74,11 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [ 
           IconButton(
             onPressed:  (){
-
+                  Navigator.push(context,
+        MaterialPageRoute(builder:(context) {
+          return const About() ;
+        },)
+        );
           }, 
           icon: const Icon (
             Icons.person,
