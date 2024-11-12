@@ -29,13 +29,6 @@ class TrekDetailPage extends StatelessWidget {
             ),
           ),
           // Add more details here as needed
-          const Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              'hello trekker',
-              style: TextStyle(fontSize: 16),
-            ),
-          ),
         ],
       ),
     );
