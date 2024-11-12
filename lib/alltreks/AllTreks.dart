@@ -73,8 +73,14 @@ class _AlltreksState extends State<Alltreks> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromARGB(255, 84, 183, 244),
+        elevation: 20,
         onPressed: () {},
-        child: const Icon(Icons.location_pin),
+        shape:const CircleBorder(),
+        child: const Icon(
+          Icons.location_pin,
+          color: Color.fromARGB(255, 255, 17, 0),
+          ),
       ),
     );
   }

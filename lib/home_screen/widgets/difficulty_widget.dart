@@ -12,8 +12,8 @@ Widget difficulty( String title){
         color: Color.fromRGBO(254, 255, 255, 1),
         boxShadow:[
           BoxShadow( 
-            color:Colors.white,
-            
+            color: Color.fromARGB(255, 220, 219, 219),
+            blurRadius: 2,
           )
         ]
       ),

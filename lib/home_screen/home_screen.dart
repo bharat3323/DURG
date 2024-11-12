@@ -1,5 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:durg/chats/Post_Screen.dart';
 import 'package:durg/alltreks/AllTreks.dart';
+import 'package:durg/alltreks/TrekDetailPage.dart';
+import 'package:durg/alltreks/widgets/TrekCard.dart';
 import 'package:durg/home_screen/widgets/difficulty_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +15,20 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
+    List<Map<String, String>> treks = [
+    {'name': 'Achala', 'image': 'assets/achla.jpeg'},
+    {'name': 'Aadrai Jungle', 'image': 'assets/aadrai.jpg'},
+    {'name': 'Ahupe Ghat', 'image': 'assets/ahupe.jpeg'},
+    {'name': 'Ajinkyatara', 'image': 'assets/ajinkyatara.jpg'},
+    {'name': 'Ajobagad', 'image': 'assets/ajobagad.jpeg'},
+    {'name': 'Amaraichi wat', 'image': 'assets/amaraichi.jpg'},
+    {'name': 'Andharban', 'image': 'assets/andharban.jpg'},
+    {'name': 'Anghai', 'image': 'assets/anghai.jpeg'},
+    {'name': 'Achala', 'image': 'assets/achla.jpeg'},
+    {'name': 'Aadrai Jungle', 'image': 'assets/aadrai.jpg'},
+    {'name': 'Ahupe Ghat', 'image': 'assets/ahupe.jpeg'},
+    {'name': 'Ajinkyatara', 'image': 'assets/ajinkyatara.jpg'},
+  ];
   List<dynamic> difficultyList = [ "Easy","Medium", "Difficult"];
   int _selectedIndex = 0;
     void _onItemTapped(int index) {
@@ -20,14 +37,21 @@ class _HomeScreenState extends State<HomeScreen> {
       if(index==0){
         Navigator.pushReplacement(context,
         MaterialPageRoute(builder:(context) {
-          return HomeScreen();
+          return const HomeScreen();
         },)
         );
       }
       else if(index ==1){
         Navigator.push(context,
         MaterialPageRoute(builder:(context) {
-          return Alltreks() ;
+          return const Alltreks() ;
+        },)
+        );
+      }
+      else if(index==2){
+         Navigator.push(context,
+        MaterialPageRoute(builder:(context) {
+          return const Post_Screen();
         },)
         );
       }
@@ -60,93 +84,198 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
 
-      body:Column ( 
-        children: [ 
-      CarouselSlider(
-        options: CarouselOptions(
-          height: 50.0,
-          autoPlay: true,
-          ),
-        items: ["Bring First Aid Kit ","No Smoking","Dont Eat wild Berries"].map((i) {
-          return Builder(
-            builder: (BuildContext context) {
-              return Container(
-                width: MediaQuery.of(context).size.width,
-                height: 50,
-                margin:const EdgeInsets.symmetric(
-                  horizontal: 5.0),
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 198, 230, 244),
-                  borderRadius: BorderRadius.all(Radius.circular(10))
-                ),
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        i,
-                        style:const TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w300
-                        ),
-                      ),
-                    ],
+      body:Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Column ( 
+          children: [ 
+        CarouselSlider(
+          options: CarouselOptions(
+            padEnds: false,
+            height: 50.0,
+            autoPlay: true,
+            autoPlayInterval: const Duration(seconds: 3)
+            ),
+          items: ["🩹   Bring First Aid Kit",
+                  "🚭    No Smoking",
+                  "Dont Eat Wild Berries  🫐",
+                  "Dont throw Plastic Bottles  🍾",
+                  "Dont Cramp on Risky Cramp   🪨"
+                  
+                  ].map((i) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 50,
+                  margin:const EdgeInsets.symmetric(
+                    horizontal: 5.0),
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    boxShadow: [
+                      BoxShadow( 
+                        color: Color.fromARGB(255, 220, 219, 219),
+                        blurRadius: 2,
+                      )
+                    ]
                   ),
-                )
-              );
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          i,
+                          style:const TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w400
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                );
+              },
+            );
+          }).toList(),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+             const Row( 
+          children: [ 
+            Icon(
+              Icons.hiking,
+              size: 35,
+              color: Colors.blue,
+            ),
+            SizedBox(width: 25,),
+            Text( "Based On Diffulty",
+            style: TextStyle( 
+              fontSize: 22,
+              fontWeight: FontWeight.w600,
+            ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        SizedBox(
+          height: 50,
+          child: ListView.builder(
+            scrollDirection:Axis.horizontal,
+            shrinkWrap: true,
+            itemCount: difficultyList.length,
+            itemBuilder:(context, index) {
+              return difficulty(difficultyList[index]);
             },
-          );
-        }).toList(),
-      ),
-      const SizedBox(
-        height: 20,
-      ),
-     const Row( 
-        children: [ 
-          Icon(
-            Icons.hiking,
-            size: 30,
-          ),
-          SizedBox(width: 25,),
-          Text( "Based On Diffulty",
-          style: TextStyle( 
-            fontSize: 22,
-            fontWeight: FontWeight.w600,
-          ),
-          ),
+            ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        const Row( 
+          children: [ 
+            Icon(
+              Icons.landscape_outlined,
+              size: 35,
+              color: Colors.blue,
+            ),
+            SizedBox(width: 25,),
+            Text( "Suggested Treks",
+            style: TextStyle( 
+              fontSize: 22,
+              fontWeight: FontWeight.w600,
+            ),
+            ),
+            
+          ],
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        SizedBox(
+          height: 200,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemCount: 4,
+            itemBuilder:(context, index) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TrekCard(
+                   name: treks[index]['name']!,
+              imageUrl: treks[index]['image']!,
+              onTap: () {
+                // Navigate to detail page when the trek card is tapped
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TrekDetailPage(
+                      name: treks[index]['name']!,
+                      imageUrl: treks[index]['image']!,
+                    ),
+                  ),
+                );
+              },
+              ),
+            );
+          },),
+        ),
+            const SizedBox(
+          height: 10,
+        ),
+        const Row( 
+          children: [ 
+            Icon(
+              Icons.favorite_border_outlined,
+              size: 35,
+              color: Colors.blue,
+            ),
+            SizedBox(width: 25,),
+            Text( "Popular Treks",
+            style: TextStyle( 
+              fontSize: 22,
+              fontWeight: FontWeight.w600,
+            ),
+            ),
+            
+          ],
+        ),
+          const SizedBox(
+          height: 10,
+        ),
+        SizedBox(
+          height: 200,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemCount: 4,
+            itemBuilder:(context, index) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TrekCard(
+                   name: treks[index]['name']!,
+              imageUrl: treks[index]['image']!,
+              onTap: () {
+                // Navigate to detail page when the trek card is tapped
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TrekDetailPage(
+                      name: treks[index]['name']!,
+                      imageUrl: treks[index]['image']!,
+                    ),
+                  ),
+                );
+              },
+              ),
+            );
+          },),
+        ),
         ],
-      ),
-      SizedBox(
-        height: 50,
-        child: ListView.builder(
-          scrollDirection:Axis.horizontal,
-          shrinkWrap: true,
-          itemCount: difficultyList.length,
-          itemBuilder:(context, index) {
-            return difficulty(difficultyList[index]);
-          },
-          ),
-      ),
-      const SizedBox(
-        height: 10,
-      ),
-      const Row( 
-        children: [ 
-          Icon(
-            Icons.landscape_outlined,
-            size: 30,
-          ),
-          SizedBox(width: 25,),
-          Text( "Based On Diffulty",
-          style: TextStyle( 
-            fontSize: 22,
-            fontWeight: FontWeight.w600,
-          ),
-          ),
-        ],
-      ),
-      ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
@@ -174,6 +303,20 @@ class _HomeScreenState extends State<HomeScreen> {
         unselectedItemColor: const Color.fromARGB(255, 138, 135, 135),
         onTap: _onItemTapped,
          ),
+      floatingActionButton: FloatingActionButton(
+        tooltip: "store",
+        elevation: 20,
+        backgroundColor: Colors.blue,
+        onPressed: (){
+
+      },
+      shape: const CircleBorder(),
+      child: const Icon( 
+        Icons.store,
+        color: Colors.white,
+      ),
+      
+      ),
     );
   }
 }
