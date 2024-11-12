@@ -1,4 +1,3 @@
-import 'package:durg/about/About.dart';
 import 'package:durg/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +13,7 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       color: Colors.white,
       debugShowCheckedModeBanner: false,
-      home:About()
+      home:HomeScreen()
       );
   }
 }
