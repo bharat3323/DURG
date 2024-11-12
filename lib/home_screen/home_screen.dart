@@ -62,12 +62,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Expanded(
-                        child: Image.network(
-                          ""
-
-                        ),
-                      ),
                       Text(
                         i,
                         style:const TextStyle(
