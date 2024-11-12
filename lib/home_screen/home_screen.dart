@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:durg/Post_Screen/Post_Screen.dart';
+<<<<<<< Updated upstream
 import 'package:durg/about/About.dart';
+=======
+>>>>>>> Stashed changes
 import 'package:durg/alltreks/AllTreks.dart';
 import 'package:durg/alltreks/TrekDetailPage.dart';
 import 'package:durg/alltreks/widgets/TrekCard.dart';
@@ -61,6 +64,14 @@ class _HomeScreenState extends State<HomeScreen> {
         Navigator.push(context,
         MaterialPageRoute(builder:(context) {
           return const Post_Screen() ;
+        },)
+        );
+      }
+
+      else if(index ==2){
+        Navigator.push(context,
+        MaterialPageRoute(builder:(context) {
+          return Post_Screen() ;
         },)
         );
       }
