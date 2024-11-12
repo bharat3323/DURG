@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:durg/alltreks/AllTreks.dart';
 import 'package:durg/home_screen/widgets/difficulty_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -12,10 +13,31 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   List<dynamic> difficultyList = [ "Easy","Medium", "Difficult"];
+  int _selectedIndex = 0;
+    void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      if(index==0){
+        Navigator.pushReplacement(context,
+        MaterialPageRoute(builder:(context) {
+          return HomeScreen();
+        },)
+        );
+      }
+      else if(index ==1){
+        Navigator.push(context,
+        MaterialPageRoute(builder:(context) {
+          return Alltreks() ;
+        },)
+        );
+      }
+    });
+
+    
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
-     
       appBar: AppBar( 
         title: const Text("Where do you want to go",
         style: TextStyle( 
@@ -126,6 +148,32 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+
+        items:const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.hiking_outlined),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.filter_hdr),
+            label: 'Treks',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Chats',
+          ),
+           BottomNavigationBarItem(
+            icon: Icon(Icons.map_rounded),
+            label: 'Maps',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: const Color.fromARGB(255, 138, 135, 135),
+        onTap: _onItemTapped,
+         ),
     );
   }
 }
