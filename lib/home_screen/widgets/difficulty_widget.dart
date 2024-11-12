@@ -9,7 +9,13 @@ Widget difficulty( String title){
       width: 100,
       decoration: const BoxDecoration( 
         borderRadius: BorderRadius.all(Radius.circular(10)),
-        color: Color.fromARGB(57, 176, 221, 244)
+        color: Color.fromRGBO(254, 255, 255, 1),
+        boxShadow:[
+          BoxShadow( 
+            color:Colors.white,
+            
+          )
+        ]
       ),
       child: Text( 
         title,
